@@ -1,9 +1,8 @@
 const express = require('express');
-const { getAllVideos, addVideo } = require('../controllers/videoController');
-const auth = require('../middlewares/auth');  // JWT Middleware to protect routes
+const { addVideo, getVideos } = require('../controllers/videoController');
 const router = express.Router();
 
-router.get('/', getAllVideos);  // Public route to get all videos
-router.post('/add', auth, addVideo);  // Protected route to add video
+router.post('/add', addVideo);
+router.get('/', getVideos);
 
 module.exports = router;
